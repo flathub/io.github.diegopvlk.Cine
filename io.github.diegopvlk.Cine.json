@@ -135,7 +135,7 @@
       "name": "python-mpv",
       "buildsystem": "simple",
       "build-commands": [
-        "pip3 install --no-index --no-build-isolation --find-links=. --prefix=/app python_mpv-1.0.8.tar.gz"
+        "pip3 install --no-index --no-build-isolation --find-links=. --prefix=/app python_mpv"
       ],
       "sources": [
         {
