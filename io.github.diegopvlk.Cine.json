@@ -26,19 +26,17 @@
     "/share/man",
     "/share/pkgconfig",
     "*.la",
-    "*.a"
+    "*.a",
+    "/lib/cmake"
   ],
   "modules": [
     {
       "name": "libmpv",
       "cleanup": [
-        "/include",
-        "/lib/pkgconfig",
         "/share/applications",
         "/share/bash-completion",
         "/share/doc",
         "/share/icons",
-        "/share/man",
         "/share/zsh"
       ],
       "buildsystem": "meson",
@@ -67,9 +65,7 @@
         {
           "name": "libass",
           "cleanup": [
-            "/include",
-            "/lib/*.la",
-            "/lib/pkgconfig"
+            "/lib/*.la"
           ],
           "config-opts": [
             "--disable-static"
@@ -97,11 +93,7 @@
             "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
           ],
           "cleanup": [
-            "/bin",
-            "/include",
-            "/lib/pkgconfig",
-            "/share/man",
-            "/lib/cmake"
+            "/bin"
           ],
           "sources": [
             {
@@ -120,10 +112,6 @@
         {
           "name": "libplacebo",
           "buildsystem": "meson",
-          "cleanup": [
-            "/include",
-            "/lib/pkgconfig"
-          ],
           "sources": [
             {
               "type": "git",
