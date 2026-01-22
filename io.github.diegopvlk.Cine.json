@@ -64,9 +64,6 @@
         "shared-modules/lua5.1/lua-5.1.5.json",
         {
           "name": "libass",
-          "cleanup": [
-            "/lib/*.la"
-          ],
           "config-opts": [
             "--disable-static"
           ],
