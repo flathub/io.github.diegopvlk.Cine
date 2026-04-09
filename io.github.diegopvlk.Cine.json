@@ -234,8 +234,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/diegopvlk/Cine",
-                    "tag": "v1.2.0",
-                    "commit": "d632668e392a00cf2ac5905d22d248a5a3a9057a"
+                    "tag": "v1.2.1",
+                    "commit": "0fbf3602017fa07fc6eb85c6f6fde81475bc3352"
                 }
             ]
         }
