@@ -1,7 +1,7 @@
 {
     "id": "io.github.diegopvlk.Cine",
     "runtime": "org.gnome.Platform",
-    "runtime-version": "50",
+    "runtime-version": "51",
     "sdk": "org.gnome.Sdk",
     "command": "cine",
     "finish-args": [
@@ -235,8 +235,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/diegopvlk/Cine",
-                    "tag": "v1.8.4",
-                    "commit": "04edbb3d5f02b766fae124be4aed0a8a0a043ac7"
+                    "tag": "v1.8.5",
+                    "commit": "a71cb18890baa40b4f29fb0f3d136c4e5e821a71"
                 }
             ]
         }
