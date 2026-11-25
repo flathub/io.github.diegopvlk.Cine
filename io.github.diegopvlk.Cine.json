@@ -53,20 +53,16 @@
             ],
             "sources": [
                 {
-                    "type": "archive",
-                    "url": "https://github.com/mpv-player/mpv/archive/v0.41.0.tar.gz",
-                    "sha256": "ee21092a5ee427353392360929dc64645c54479aefdb5babc5cfbb5fad626209",
-                    "x-checker-data": {
+                    "type": "git",
+                    "url": "https://github.com/mpv-player/mpv.git",
+                    "commit": "09cf7a11f27d9caed31b3e8a6c9ddc45ed788c95",
+                    "x-checker-data-disabled": {
                         "type": "anitya",
                         "project-id": 5348,
                         "stable-only": true,
                         "url-template": "https://github.com/mpv-player/mpv/archive/v$version.tar.gz",
                         "is-important": true
                     }
-                },
-                {
-                    "type": "patch",
-                    "path": "fix-screenshots.diff"
                 }
             ],
             "modules": [
@@ -127,6 +123,82 @@
                             "x-checker-data": {
                                 "type": "git",
                                 "tag-pattern": "^v([\\d.]+)$"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "libdvdread",
+                    "buildsystem": "meson",
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://download.videolan.org/pub/videolan/libdvdread/7.1.1/libdvdread-7.1.1.tar.xz",
+                            "sha256": "a0d47876548bec806774bbf8dbf20bb19ba139464383156b32eb8e59915b90a9",
+                            "x-checker-data": {
+                                "type": "html",
+                                "url": "https://download.videolan.org/pub/videolan/libdvdread/last/",
+                                "version-pattern": "libdvdread-([\\w.]+)\\.tar\\.",
+                                "stable-only": true,
+                                "url-template": "https://download.videolan.org/pub/videolan/libdvdread/$version/libdvdread-$version.tar.xz"
+                            }
+                        }
+                    ],
+                    "modules": [
+                        {
+                            "name": "libdvdcss",
+                            "buildsystem": "meson",
+                            "sources": [
+                                {
+                                    "type": "archive",
+                                    "url": "https://download.videolan.org/pub/libdvdcss/1.6.0/libdvdcss-1.6.0.tar.xz",
+                                    "sha256": "7ea556c846b7bfc32d47b41cae56d1863a6b6d5f706bb162778d6f298490977c",
+                                    "x-checker-data": {
+                                        "type": "anitya",
+                                        "project-id": 5568,
+                                        "stable-only": true,
+                                        "url-template": "https://download.videolan.org/pub/libdvdcss/$version/libdvdcss-$version.tar.xz"
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "name": "libdvdnav",
+                    "buildsystem": "meson",
+                    "sources": [
+                        {
+                            "type": "archive",
+                            "url": "https://download.videolan.org/pub/videolan/libdvdnav/7.0.0/libdvdnav-7.0.0.tar.xz",
+                            "sha256": "a2a18f5ad36d133c74bf9106b6445806fa253b09141a46392550394b647b221e",
+                            "x-checker-data": {
+                                "type": "html",
+                                "url": "https://download.videolan.org/pub/videolan/libdvdnav/last/",
+                                "version-pattern": "libdvdnav-([\\w.]+)\\.tar\\.",
+                                "stable-only": true,
+                                "url-template": "https://download.videolan.org/pub/videolan/libdvdnav/$version/libdvdnav-$version.tar.xz"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "libbluray",
+                    "buildsystem": "meson",
+                    "config-opts": [
+                        "-Dbdj_jar=disabled",
+                        "-Denable_tools=false"
+                    ],
+                    "sources": [
+                        {
+                            "sha256": "f676408e91a5d321abf8b8d4dfdae36205c297dab5c54c3ec519639025f474a2",
+                            "type": "archive",
+                            "url": "https://download.videolan.org/pub/videolan/libbluray/1.5.0/libbluray-1.5.0.tar.xz",
+                            "x-checker-data": {
+                                "type": "html",
+                                "url": "https://download.videolan.org/pub/videolan/libbluray/last/",
+                                "version-pattern": "libbluray-([\\w.]+)\\.tar\\.",
+                                "url-template": "https://download.videolan.org/pub/videolan/libbluray/$version/libbluray-$version.tar.xz"
                             }
                         }
                     ]
@@ -204,26 +276,12 @@
                 {
                     "type": "git",
                     "url": "https://github.com/yt-dlp/yt-dlp.git",
-                    "tag": "2026.10.26",
-                    "commit": "f264a6cbd1f630894da0f368df00f8aae50140e0",
+                    "tag": "2026.11.23",
+                    "commit": "6f73a8d1664a58cdef8c25f01ffb5ab9cf730408",
                     "x-checker-data": {
                         "type": "git",
                         "tag-pattern": "^([\\d.]+)$"
                     }
-                }
-            ]
-        },
-        {
-            "name": "python-mpv",
-            "buildsystem": "simple",
-            "build-commands": [
-                "pip3 install --no-index --no-build-isolation --find-links=. --prefix=/app python_mpv"
-            ],
-            "sources": [
-                {
-                    "type": "file",
-                    "url": "https://files.pythonhosted.org/packages/77/bc/6aa34c8805ff62e2fefc7d171563c60598aac215d5241186031a2c839935/python_mpv-1.0.8.tar.gz",
-                    "sha256": "017fa359da059c831a94c419083491903e6d2f7c81b9841c33c196cabf4b3fe3"
                 }
             ]
         },
@@ -235,8 +293,8 @@
                 {
                     "type": "git",
                     "url": "https://github.com/diegopvlk/Cine",
-                    "tag": "v1.8.8",
-                    "commit": "a069d8c97b07ca718df46b52d73457b23528c74e"
+                    "tag": "v1.9.0",
+                    "commit": "ebecc02a091f7e98daad8eaa1e3b3a4cca1a5d9a"
                 }
             ]
         }
